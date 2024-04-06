@@ -77,6 +77,12 @@ button:hover {
     margin-top: -5px;
 }
 
+.amenities input[type="checkbox"] {
+    margin-right: 10px;
+    vertical-align: middle;
+    position: absolute;
+}
+
 .amenities .popover ul{
     margin: 0px;
 }

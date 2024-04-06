@@ -9,6 +9,8 @@
     <link type="text/css" rel="stylesheet" href="../static/styles/8-places.css?cache_id={{ cache_id }}">
     <link rel="icon" href="../static/images/icon.png?cache_id={{ cache_id }}" />
     <title>HBnB</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="../static/scripts/1-hbnb.js?cache_id={{ cache_id }}"></script>
   </head>
   <body>
     <header>
@@ -18,7 +20,7 @@
       <section class="filters">
 	<div class="locations">
 	  <h3>States</h3>
-	  <h4>&nbsp;</h4>
+	  <h4>Atlanta, Califonia...</h4>
 	  <div class="popover">
 	    <ul>
 	      {% for state in states %}
@@ -35,40 +37,148 @@
 	  </div>
 	</div>
 	<div class="amenities">
-	  <h3>Amenities</h3>
-	  <h4>&nbsp;</h4>
-	  <div class="popover">
-	    <ul>
-	      {% for amenity in amenities %}
-	      <li>{{ amenity.name }}</li>
-	      {% endfor %}
-	    </ul>
-	  </div>
-	</div>
+		<h3>Amenities</h3>
+		<h4>Wi-Fi, Laundry...</h4>
+		<div class="popover">
+			<ul>
+				{% for amenity in amenities %}
+				<li>
+					<input type="checkbox" id="{{ amenity.name }}" data-id="{{ amenity.id }}" data-name="{{ amenity.name }}">
+					<label for="{{ amenity.nam }}">{{ amenity.name }}</label>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>	
 	<button type="button">Search</button>
       </section>
       <div class="placesh1"><h1>Places</h1></div>
       <section class="places">
 	<!-- <h1>Places</h1> -->
-	{% for place in places %}
+	<!--{% for place in places %}-->
 	<article>
 	  <div class="title_box">
-	    <h2>{{ place.name }}</h2>
-	    <div class="price_by_night">${{ place.price_by_night }}</div>
+	    <!--<h2>{{ place.name }}</h2>-->
+		<h2>#Beautiful Studio in Waikiki<h2>
+	    <!--<div class="price_by_night">${{ place.price_by_night }}</div>-->
+		<div class="price_by_night">$250</div>
 	  </div>
 	  <div class="information">
-	    <div class="max_guest">{{ place.max_guest }} Guest{% if place.max_guest != 1 %}s{% endif %}</div>
-            <div class="number_rooms">{{ place.number_rooms }} Bedroom{% if place.number_rooms != 1 %}s{% endif %}</div>
-            <div class="number_bathrooms">{{ place.number_bathrooms }} Bathroom{% if place.number_bathrooms != 1 %}s{% endif %}</div>
+	    <!--<div class="max_guest">{{ place.max_guest }} Guest{% if place.max_guest != 1 %}s{% endif %}</div>-->
+		<div class="max_guest">2 Guests</div>
+            <!--<div class="number_rooms">{{ place.number_rooms }} Bedroom{% if place.number_rooms != 1 %}s{% endif %}</div>-->
+		<div class="number_rooms">1 Bedroom</div>
+			<!--<div class="number_bathrooms">{{ place.number_bathrooms }} Bathroom{% if place.number_bathrooms != 1 %}s{% endif %}</div>-->
+        <div class="number_bathrooms">1 Bathroom</div>
 	  </div>
 	  <div class="user">
-            <b>Owner:</b> {{ place.user.first_name }} {{ place.user.last_name }}
+            <!--<b>Owner:</b> {{ place.user.first_name }} {{ place.user.last_name }}-->
+			<b>Owner: Jane Doe</b> <!--{{ place.user.first_name }} {{ place.user.last_name }}-->
           </div>
           <div class="description">
-	    {{ place.description | safe }}
+	    <!--{{ place.description | safe }}-->
+		A sophisticated chest, cozy, immersed in nature and unmistakable style. Uniquely designed, it is characterised by a large window on the gulf that projects the guest into a suspension mode.
           </div>
 	</article>
-	{% endfor %}
+	<article>
+		<div class="title_box">
+		  <!--<h2>{{ place.name }}</h2>-->
+		  <h2>#Private Studio - Waikiki Dream<h2>
+		  <!--<div class="price_by_night">${{ place.price_by_night }}</div>-->
+		  <div class="price_by_night">$1085</div>
+		</div>
+		<div class="information">
+		  <!--<div class="max_guest">{{ place.max_guest }} Guest{% if place.max_guest != 1 %}s{% endif %}</div>-->
+		  <div class="max_guest">2 Guests</div>
+			  <!--<div class="number_rooms">{{ place.number_rooms }} Bedroom{% if place.number_rooms != 1 %}s{% endif %}</div>-->
+		  <div class="number_rooms">1 Bedrooms</div>
+			  <!--<div class="number_bathrooms">{{ place.number_bathrooms }} Bathroom{% if place.number_bathrooms != 1 %}s{% endif %}</div>-->
+		  <div class="number_bathrooms">1 Bathroom</div>
+		</div>
+		<div class="user">
+			  <!--<b>Owner:</b> {{ place.user.first_name }} {{ place.user.last_name }}-->
+			  <b>Owner: John Doe</b> <!--{{ place.user.first_name }} {{ place.user.last_name }}-->
+			</div>
+			<div class="description">
+		  <!--{{ place.description | safe }}-->
+		  Built in the 19th century, with a 360 degrees view over the sea and surroundings on the top floor.It has a 4000 m garden with sub-tropical fruit trees, garden trees, and flowers.
+		  In addition to the Mill ideal for 2 people, it has two more accommodation units: the Mó de Cima's House ideal up to 3 people and the Moleiro's House that hold up tp 4 people.
+			</div>
+	</article>
+	<article>
+		<div class="title_box">
+		  <!--<h2>{{ place.name }}</h2>-->
+		  <h2>#Beautiful Studio in Waikiki<h2>
+		  <!--<div class="price_by_night">${{ place.price_by_night }}</div>-->
+		  <div class="price_by_night">$250</div>
+		</div>
+		<div class="information">
+		  <!--<div class="max_guest">{{ place.max_guest }} Guest{% if place.max_guest != 1 %}s{% endif %}</div>-->
+		  <div class="max_guest">2 Guests</div>
+			  <!--<div class="number_rooms">{{ place.number_rooms }} Bedroom{% if place.number_rooms != 1 %}s{% endif %}</div>-->
+		  <div class="number_rooms">1 Bedroom</div>
+			  <!--<div class="number_bathrooms">{{ place.number_bathrooms }} Bathroom{% if place.number_bathrooms != 1 %}s{% endif %}</div>-->
+		  <div class="number_bathrooms">1 Bathroom</div>
+		</div>
+		<div class="user">
+			  <!--<b>Owner:</b> {{ place.user.first_name }} {{ place.user.last_name }}-->
+			  <b>Owner: Jane Doe</b> <!--{{ place.user.first_name }} {{ place.user.last_name }}-->
+			</div>
+			<div class="description">
+		  <!--{{ place.description | safe }}-->
+		  A sophisticated chest, cozy, immersed in nature and unmistakable style. Uniquely designed, it is characterised by a large window on the gulf that projects the guest into a suspension mode.
+			</div>
+	  </article>
+	  <article>
+		  <div class="title_box">
+			<!--<h2>{{ place.name }}</h2>-->
+			<h2>#Private Studio - Waikiki Dream<h2>
+			<!--<div class="price_by_night">${{ place.price_by_night }}</div>-->
+			<div class="price_by_night">$1085</div>
+		  </div>
+		  <div class="information">
+			<!--<div class="max_guest">{{ place.max_guest }} Guest{% if place.max_guest != 1 %}s{% endif %}</div>-->
+			<div class="max_guest">2 Guests</div>
+				<!--<div class="number_rooms">{{ place.number_rooms }} Bedroom{% if place.number_rooms != 1 %}s{% endif %}</div>-->
+			<div class="number_rooms">1 Bedrooms</div>
+				<!--<div class="number_bathrooms">{{ place.number_bathrooms }} Bathroom{% if place.number_bathrooms != 1 %}s{% endif %}</div>-->
+			<div class="number_bathrooms">1 Bathroom</div>
+		  </div>
+		  <div class="user">
+				<!--<b>Owner:</b> {{ place.user.first_name }} {{ place.user.last_name }}-->
+				<b>Owner: John Doe</b> <!--{{ place.user.first_name }} {{ place.user.last_name }}-->
+			  </div>
+			  <div class="description">
+			<!--{{ place.description | safe }}-->
+			Built in the 19th century, with a 360 degrees view over the sea and surroundings on the top floor.It has a 4000 m garden with sub-tropical fruit trees, garden trees, and flowers.
+			In addition to the Mill ideal for 2 people, it has two more accommodation units: the Mó de Cima's House ideal up to 3 people and the Moleiro's House that hold up tp 4 people.
+			  </div>
+		</article>
+		<article>
+			<div class="title_box">
+			  <!--<h2>{{ place.name }}</h2>-->
+			  <h2>#Beautiful Studio in Waikiki<h2>
+			  <!--<div class="price_by_night">${{ place.price_by_night }}</div>-->
+			  <div class="price_by_night">$250</div>
+			</div>
+			<div class="information">
+			  <!--<div class="max_guest">{{ place.max_guest }} Guest{% if place.max_guest != 1 %}s{% endif %}</div>-->
+			  <div class="max_guest">2 Guests</div>
+				  <!--<div class="number_rooms">{{ place.number_rooms }} Bedroom{% if place.number_rooms != 1 %}s{% endif %}</div>-->
+			  <div class="number_rooms">1 Bedroom</div>
+				  <!--<div class="number_bathrooms">{{ place.number_bathrooms }} Bathroom{% if place.number_bathrooms != 1 %}s{% endif %}</div>-->
+			  <div class="number_bathrooms">1 Bathroom</div>
+			</div>
+			<div class="user">
+				  <!--<b>Owner:</b> {{ place.user.first_name }} {{ place.user.last_name }}-->
+				  <b>Owner: Jane Doe</b> <!--{{ place.user.first_name }} {{ place.user.last_name }}-->
+				</div>
+				<div class="description">
+			  <!--{{ place.description | safe }}-->
+			  A sophisticated chest, cozy, immersed in nature and unmistakable style. Uniquely designed, it is characterised by a large window on the gulf that projects the guest into a suspension mode.
+				</div>
+		  </article>
+	<!--{% endfor %}-->
       </section>
     </div>
     <footer>
